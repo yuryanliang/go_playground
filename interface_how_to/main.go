@@ -20,6 +20,5 @@ func main() {
 	fmt.Println(Eat(Apple{}))
 	fmt.Println(Eat("sting"))
 	fmt.Println(Eat(2))
-	fmt.Println(Eat(Animal{}))
 
 }
