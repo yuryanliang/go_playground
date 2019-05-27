@@ -23,7 +23,7 @@ type GreeterService interface {
 }
 
 type greeter struct {
-	database db
+	database DB
 	lang     string
 }
 
@@ -38,14 +38,19 @@ func (g greeter) GreetDefaultMsg() string {
 }
 
 func main() {
+
 	actualDatabase := db{}
+	SendGreet(actualDatabase, "English")
+
+}
+
+func SendGreet(database DB, lang string) {
 	greeter := greeter{
-		database: actualDatabase,
-		lang:     "English",
+		database: database,
+		lang:     lang,
 	}
 	word := greeter.Greet()
 	fmt.Println(word)
 	wordDefault := greeter.GreetDefaultMsg()
 	fmt.Println(wordDefault)
-
 }
