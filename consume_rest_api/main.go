@@ -13,6 +13,13 @@ import (
 type Response struct {
 	Name    string    `json:"name"`
 	Pokemon []Pokemon `json:"pokemon_entries"`
+	Id      int       `json:"id"`
+	Region  Region    `json:"region"`
+}
+
+type Region struct {
+	Name string
+	Url  string
 }
 
 // A Pokemon Struct to map every pokemon to.
@@ -37,6 +44,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+	fmt.Println(string(responseData))
 
 	var responseObject Response
 	json.Unmarshal(responseData, &responseObject)
