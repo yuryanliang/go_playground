@@ -35,7 +35,7 @@ func (m *smsServiceMock) DummyFunc() {
 }
 
 // TestChargeCustomer is where the magic happens
-// here we create our SMSService mock
+// here we create our SMSService database
 func TestChargeCustomer(t *testing.T) {
 	smsService := new(smsServiceMock)
 

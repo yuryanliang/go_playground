@@ -9,7 +9,7 @@ import (
 
 var databaseMock = new(mocks.DB)
 
-//func TestI(args mock.Arguments)bool{
+//func TestI(args database.Arguments)bool{
 //	arg1:=args.Get(0).(string)
 //	return arg1[0]=="i"
 //}
@@ -27,10 +27,10 @@ func TestSendGreet(t *testing.T) {
 		database: databaseMock,
 		lang:     "it",
 	}
-	//databaseMock.On("FetchMessage","English").Return("mock return anything",nil)
-	//databaseMock.On("FetchDefaultMessage",).Return("mock default return",nil)
-	//databaseMock.On("FetchMessage",mock.Anything).Return("lah",nil)
-	//caller:=databaseMock.On("FetchMessage", mock.MatchedBy(func(lang string) bool { return lang[0] == 'i' }))
+	//databaseMock.On("FetchMessage","English").Return("database return anything",nil)
+	//databaseMock.On("FetchDefaultMessage",).Return("database default return",nil)
+	//databaseMock.On("FetchMessage",database.Anything).Return("lah",nil)
+	//caller:=databaseMock.On("FetchMessage", database.MatchedBy(func(lang string) bool { return lang[0] == 'i' }))
 	caller := databaseMock.On("FetchMessage", mock.MatchedBy(TestI))
 	fmt.Println("caller arguments", caller.Arguments)
 	caller.Return("bzzzz", nil)

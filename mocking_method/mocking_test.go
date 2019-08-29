@@ -8,7 +8,7 @@ import (
 )
 
 // MockTest helps implement our customized GetVolume and GetSurfaceArea
-// needed to mock the original implementation in mocking.go
+// needed to database the original implementation in mocking.go
 type MockTest struct {
 	Elem int
 }

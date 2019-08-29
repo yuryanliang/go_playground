@@ -1,11 +1,11 @@
 package database
-
 import (
 	"gopkg.in/DATA-DOG/go-sqlmock.v1"
 	"testing"
 )
 
 func TestFindDatabaseRecord(t *testing.T) {
+	// the db satisfy the sql.DB struct
 	db, mock, err := sqlmock.New()
 	if err != nil {
 		t.Fatalf("an error '%s' was not expected when opening a stub database connection", err)
@@ -18,10 +18,9 @@ func TestFindDatabaseRecord(t *testing.T) {
 		WithArgs(3)
 	// TODO: define the values that need to be returned from the database
 
-	myDB := NewRepository(db) // passes the database to our code
-
+	myDB := NewRepository(db) // passes the mock to our code
+	// run the code with the database mock
 	if err = myDB.Find(3); err != nil {
-		t.Errorf("Something went wrong: %s", err.Error())
+		t.Errorf("something went wrong: %s", err.Error())
 	}
-
 }

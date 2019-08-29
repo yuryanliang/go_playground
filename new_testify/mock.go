@@ -20,14 +20,14 @@ type MyService struct {
 
 // SendChargeNotification notifies clients they have been
 // charged via SMS
-// This is the method we are going to mock
+// This is the method we are going to database
 func (sms SMSService) SendChargeNotification(value int) bool {
 	fmt.Println("Sending Production Charge Notification")
 	return true
 }
 
 // ChargeCustomer performs the charge to the customer
-// In a real system we would maybe mock this as well
+// In a real system we would maybe database this as well
 // but here, I want to make some money every time I run my tests
 func (a MyService) ChargeCustomer(value int) error {
 	a.messageService.SendChargeNotification(value)
